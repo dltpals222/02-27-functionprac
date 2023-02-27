@@ -9,6 +9,7 @@
 <body>
   <div id="root"></div>
   <script>
+    //객체를 만들어주는 간단한 함수
     function datafunc(a, b, c, d){
       let obj = {
         parentData : document.querySelector(a),
@@ -19,22 +20,23 @@
       return obj;
     }
     //사용자 정의 함수안에 넣었다.
-  //위는 리터럴이 맞다. / 실체는 여기에 있다.
-  //리턴이 없으면 실행이 안된다. 이것을 캡슐화라고 한다.
+    //위는 리터럴이 맞다. / 실체는 여기에 있다.
+    //리턴이 없으면 실행이 안된다. 이것을 캡슐화라고 한다.
     let tagArray = ["div","footer","section"]
     let dataForm = datafunc("#root",tagArray[1],"li","hello");
     //호출할 때 결정할 수 있다.
+    //리펙토링 = 리터럴(노란색)을 걷어낸다.
 
     let root = dataForm.parentData;
-    console.dir(root)
-    let ul = dataForm.childrenData
+    console.dir(root);
+    let ul = dataForm.childrenData;
     root.appendChild(ul);
-    let li = dataForm.grandChildrenData
-    ul.appendChild(li)
-
-    li.textContent = dataForm.grandChildrenText
+    let li = dataForm.grandChildrenData;
+    ul.appendChild(li);
+    li.textContent = dataForm.grandChildrenText;
     //작성실행만 있다. 추론밖에 안된다. 하지만 바꾸는건 끝내주게 할 수 있다.
     //리액트의 초기형태이다.
+    //검증이 되면 다시 볼 필요가 없다.
   </script>
 </body>
 </html>
