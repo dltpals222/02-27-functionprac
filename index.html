@@ -5,14 +5,41 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    #root{
+      width: 100px;
+      height: 100px;
+      background-color: blueviolet;
+    }
+  </style>
 </head>
 <body>
   <div id="root"></div>
   <script>
     let root = document.getElementById('root');
     console.dir(root);
-    let mainText = "수요일은 쉽니다.";
-    root.textContent = mainText;
+
+    let weekend = ["월요일 오늘","수요일 쉼","목요일에 공부하자","금요일 놀자","토요일에 쉬자!","일요일에 놀자!"];
+    let counter = 0;
+    console.log(counter)
+    
+
+    root.addEventListener("click",function(){
+      root.textContent = weekend[counter];
+
+      counter = counter + 1 ;
+      
+      if( counter >= weekend.length){
+        counter = 0;
+        //만약에 카운터라는 변수가 weekend의 크기만큼 크거나 같다면 counter를 0으로 재할당해달라는 말이다.
+      }
+
+      
+      console.log(counter);
+    });
+    //문서가 없으므로 클릭이 안된다.
+    //클릭하는 순간 문서가 만들어진다.
+    //숫자 1증가로인해 내용이 변경된다.
   </script>
 </body>
 </html>
